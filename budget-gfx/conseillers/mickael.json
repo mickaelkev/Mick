@@ -1,0 +1,13 @@
+{
+  "actif": true,
+  "slug": "mickael",
+  "nom_complet": "Mickaël Léveillé",
+  "prenom": "Mickaël",
+  "initiales": "ML",
+  "courriel": "mickael.leveille@sfl.ca",
+  "lien_rendez_vous": "",
+  "lien_page": "https://claude.ai/artifact/TrGPib9tCRHSPW5vzKH5Zf",
+  "webhook": "",
+  "photo_proche": "assets/photo-proche-mickael.webp",
+  "photo_loin": "assets/photo-loin-mickael.webp"
+}

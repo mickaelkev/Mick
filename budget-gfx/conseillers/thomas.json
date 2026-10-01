@@ -1,0 +1,13 @@
+{
+  "actif": false,
+  "slug": "thomas",
+  "nom_complet": "Thomas Simard",
+  "prenom": "Thomas",
+  "initiales": "TS",
+  "courriel": "",
+  "lien_rendez_vous": "",
+  "lien_page": "",
+  "webhook": "",
+  "photo_proche": "assets/photo-proche-thomas.webp",
+  "photo_loin": "assets/photo-loin-thomas.webp"
+}

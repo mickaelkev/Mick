@@ -1,0 +1,13 @@
+{
+  "actif": false,
+  "slug": "zachary",
+  "nom_complet": "Zachary Kali",
+  "prenom": "Zachary",
+  "initiales": "ZK",
+  "courriel": "",
+  "lien_rendez_vous": "",
+  "lien_page": "",
+  "webhook": "",
+  "photo_proche": "assets/photo-proche-zachary.webp",
+  "photo_loin": "assets/photo-loin-zachary.webp"
+}
