@@ -1,6 +1,6 @@
 # Budget GFX — consignes pour Claude
 
-- Modifier seulement `src/`, `conseillers/` et `assets/`. `dist/` est généré par `python3 build.py`. Toujours reconstruire et commiter `dist/` avec la source.
+- Modifier seulement `src/`, `conseillers/` et `assets/`. `dist/` est généré par `python3 build.py`. Toujours reconstruire et commiter `dist/` avec la source, puis lancer `./publier.sh` pour mettre en ligne (branche gh-pages).
 - Textes dynamiques en deux langues : `L('français','English')`. Textes fixes de `body.html` : ajouter la traduction dans `src/traductions-en.json`.
 - Jamais de `<head`, `<body`, `<html`, `<meta`, `<title`, `<style`, `<!doctype`, `</script` littéraux dans `app.js` : utiliser `\x3c…` (build.py bloque sinon).
 - Les données client restent dans le navigateur (localStorage). Ne jamais ajouter d'envoi des dépenses de « Mon suivi » au conseiller ni de stockage serveur.

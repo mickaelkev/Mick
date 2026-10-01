@@ -104,6 +104,7 @@ def main():
         if not confs:
             sys.exit(f'Aucun conseiller nommé {args}')
     img, fav = icon()
+    built = []
     for p in confs:
         c = json.loads(p.read_text())
         if not c.get('actif') and not args:
@@ -125,6 +126,37 @@ def main():
         if claude:
             (BUILD / f'{c["slug"]}-claude.html').write_text(page)
         print(f'✓ {c["slug"]} → {out.relative_to(ROOT)}/index.html ({len(html) // 1024} Ko)')
+        built.append(c)
+    if built and not args:
+        landing(built)
+
+
+def landing(built):
+    """Petite page d'accueil (dist/index.html) qui mène à la version de chaque conseiller."""
+    rows = ''.join(f'<a href="{c["slug"]}/"><b>{c["nom_complet"]}</b><span>Budget et app Mon suivi →</span></a>' for c in built)
+    (DIST / 'index.html').write_text(f'''<!doctype html>
+<html lang="fr-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Budget GFX</title><meta name="robots" content="noindex">
+<style>
+:root{{--bg:#F4F5F7;--card:#fff;--ink:#111B29;--muted:#5A6577;--line:#DDE1E7;--gold:#C9A24A}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#0B1220;--card:#121A2A;--ink:#EEF1F6;--muted:#9AA5B6;--line:#243045}}}}
+body{{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}}
+main{{max-width:560px;margin:0 auto;padding:48px 16px}}
+header{{background:#0F1D30;border-radius:16px;padding:20px 24px;border-bottom:3px solid var(--gold)}}
+header img{{width:150px;display:block}}
+h1{{font-size:1.4rem;letter-spacing:-.02em;margin:32px 0 8px}}
+p{{color:var(--muted);margin:0 0 24px}}
+a{{display:grid;gap:2px;padding:16px 20px;margin-bottom:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;color:inherit;text-decoration:none}}
+a:hover{{border-color:var(--gold)}}
+a span{{color:var(--muted);font-size:.9rem}}
+</style></head><body><main>
+<header><img src="{data_url('assets/logo.webp')}" alt="GFX — Groupe Financier Excellence"></header>
+<h1>Budget GFX</h1>
+<p>Choisis la version de ton conseiller. Tes réponses restent sur ton appareil.</p>
+{rows}
+</main></body></html>
+''')
+    print('✓ page d’accueil → dist/index.html')
 
 
 if __name__ == '__main__':

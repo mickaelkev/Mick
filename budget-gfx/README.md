@@ -11,6 +11,7 @@ Page budget que les conseillers GFX envoient à leurs clients. Le client remplit
 ```
 budget-gfx/
 ├── build.py                 ← assemble les pages (python3 build.py)
+├── publier.sh               ← met les pages en ligne (GitHub Pages)
 ├── conseillers/             ← un fichier par conseiller (nom, courriel, lien de rendez-vous, photos)
 │   ├── mickael.json
 │   ├── thomas.json
@@ -65,11 +66,22 @@ Chaque conseiller a sa propre clé de sauvegarde. Un client qui ouvre deux versi
 
 ## Mettre en ligne (GitHub Pages)
 
-Dans GitHub : **Settings → Pages → Deploy from a branch → `main` / `(root)`**. Après une minute, chaque page est en ligne à :
+Les pages sont servies depuis la branche `gh-pages`, qui contient seulement le dossier `dist/`. Après avoir commité tes changements :
 
 ```
-https://mickaelkev.github.io/Mick/budget-gfx/dist/mickael/
+./publier.sh
 ```
+
+En 1 à 2 minutes, c'est en ligne :
+
+| Page | Lien |
+|---|---|
+| Accueil, avec la liste des conseillers | https://mickaelkev.github.io/Mick/ |
+| Mickaël | https://mickaelkev.github.io/Mick/mickael/ |
+| Thomas, une fois activé | https://mickaelkev.github.io/Mick/thomas/ |
+| Zachary, une fois activé | https://mickaelkev.github.io/Mick/zachary/ |
+
+Si le lien ne répond pas après le premier `./publier.sh`, va dans **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**.
 
 Hébergée ainsi, la page permet en plus :
 - d'ajouter les paiements au calendrier du téléphone (.ics) ;
