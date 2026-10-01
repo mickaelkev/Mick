@@ -7,7 +7,7 @@ const WEBHOOK_URL='';
 const MAIL='mickael.leveille@sfl.ca';
 // Lien de prise de rendez-vous (Microsoft Bookings, Calendly…). Vide = le bouton ouvre un courriel de demande.
 const BOOK_URL='';
-const SHARE_URL='https://claude.ai/artifact/TrGPib9tCRHSPW5vzKH5Zf';
+const SHARE_URL='https://mickaelkev.github.io/Mick/mickael/';
 const KEY='budget-gfx-v3';try{Object.keys(localStorage).filter(k=>/^budget-gfx-v[12]\b/.test(k)).forEach(k=>localStorage.removeItem(k))}catch(e){}
 
 /* ================= langue ================= */
